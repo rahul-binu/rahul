@@ -1,24 +1,27 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import './assets/style/app.scss';
+import './assets/style/app.css';
 import MainLayout from "./main/layouts/MainLayout";
 import { UIProvider } from "./main/context/UIContext";
 import Home from './main/pages/Home';
 import TerminalPortfolio from './main/pages/TerminalPortfolio';
+import { ThemeProvider } from './main/context/ThemeContext';
 
 function App() {
   return (
     <>
       <UIProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/rahul/">
           <Routes>
+
+            
               <Route element={<MainLayout />}>
                 <Route path="/dashboard" element={<Home />} />
               </Route>
 
-              <Route element={<MainLayout />}>
-                <Route path="/konsole" element={<TerminalPortfolio />} />
-              </Route>
+            <Route element={<MainLayout />}>
+              <Route path="" element={<TerminalPortfolio />} />
+            </Route>
 
           </Routes>
         </BrowserRouter>

@@ -8,4 +8,5 @@ export default defineConfig({
     https: false,  // simple self-signed certificate
     host: true,   // allows access via LAN IP
   },
+   base: '/rahul/',
 })

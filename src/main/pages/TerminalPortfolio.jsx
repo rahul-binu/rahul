@@ -192,7 +192,7 @@ const sampleProjects = [
 // -------------------- Utility --------------------
 function enterFullscreen() {
     const el = document.documentElement;
-    if (el.requestFullscreen) el.requestFullscreen();
-    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
-    else if (el.msRequestFullscreen) el.msRequestFullscreen();
+    // if (el.requestFullscreen) el.requestFullscreen();
+    // else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    // else if (el.msRequestFullscreen) el.msRequestFullscreen();
 }
