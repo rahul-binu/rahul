@@ -1,27 +1,35 @@
 export const themes = {
   light: {
-    primary: "from-emerald-500 via-green-500 to-teal-500", // elegant green gradient
-    hover: "hover:text-emerald-700",                       // natural hover
-    text: "text-gray-900",                                 // main text
-    secondaryText: "text-gray-600",                        // subtle text
-    background: "bg-gradient-to-br from-green-50 via-emerald-100 to-lime-50", // soft pastel bg
-    sectionBg: "bg-white/70 backdrop-blur-md shadow-lg border border-emerald-200/30 rounded-2xl", // clean glassmorphic
-    footer: "bg-gradient-to-b from-green-200 via-emerald-300 to-lime-200", // soft footer
+    // Cool futuristic glass look
+    primary: "from-cyan-500 via-blue-500 to-indigo-500", 
+    hover: "hover:text-cyan-700 hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.6)] transition-all duration-300",
+    text: "text-gray-900",
+    secondaryText: "text-gray-600",
+    background: "bg-gradient-to-br from-sky-50 via-indigo-100 to-cyan-100",
+    sectionBg:
+      "bg-white/60 backdrop-blur-lg shadow-xl border border-cyan-200/40 rounded-2xl",
+    footer:
+      "bg-gradient-to-b from-indigo-200 via-blue-200 to-cyan-200 border-t border-cyan-300/40",
     button:
-      "bg-gradient-to-r from-emerald-500 to-green-600 text-white font-semibold rounded-lg shadow-md hover:shadow-emerald-400/40 transition-all duration-300",
+      "bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 text-white font-semibold rounded-lg shadow-md hover:shadow-cyan-400/50 hover:scale-105 transition-all duration-300",
+    navLink:
+      "text-gray-800 hover:text-cyan-700 hover:drop-shadow-[0_0_6px_rgba(6,182,212,0.6)] transition-all duration-300",
   },
 
   dark: {
-    primary: "from-green-400 via-emerald-500 to-lime-400", // luxurious glow gradient
-    hover: "hover:text-lime-300",                          // bright hover
-    text: "text-gray-100",                                 // main text
-    secondaryText: "text-gray-400",                        // softer text
-    background: "bg-gradient-to-br from-gray-950 via-green-950 to-black", // deep, premium dark
+    // Cyberpunk / futuristic glow
+    primary: "from-cyan-400 via-blue-500 to-purple-500",
+    hover: "hover:text-cyan-300 hover:scale-110 hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.9)] transition-all duration-300",
+    text: "text-gray-100",
+    secondaryText: "text-gray-400",
+    background: "bg-gradient-to-br from-gray-950 via-indigo-950 to-black",
     sectionBg:
-      "bg-green-900/20 backdrop-blur-md border border-emerald-500/10 rounded-2xl shadow-lg shadow-emerald-900/40", // glowing cards
+      "bg-gray-900/40 backdrop-blur-xl border border-cyan-500/20 rounded-2xl shadow-lg shadow-cyan-500/20",
     footer:
-      "bg-gradient-to-b from-green-950 via-emerald-900 to-gray-950 border-t border-emerald-800/30", // elegant footer
+      "bg-gradient-to-b from-indigo-950 via-gray-950 to-black border-t border-cyan-800/30",
     button:
-      "bg-gradient-to-r from-lime-400 via-emerald-500 to-green-600 text-white font-semibold rounded-lg shadow-lg shadow-emerald-500/40 hover:shadow-lime-400/40 transition-all duration-300",
+      "bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg shadow-cyan-500/40 hover:shadow-blue-400/50 hover:scale-105 transition-all duration-300",
+    navLink:
+      "text-gray-300 hover:text-cyan-300 hover:drop-shadow-[0_0_10px_rgba(6,182,212,0.8)] transition-all duration-300",
   },
 };

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [hide, setHide] = useState(false);
   const [active, setActive] = useState("home");
   const { theme, toggleTheme, themeMode } = useTheme();
 
+  // active section detection
+  const sections = ["home", "about", "projects", "contact"];
   useEffect(() => {
     let lastY = window.scrollY;
     const onScroll = () => {
@@ -14,17 +16,21 @@ const Navbar = () => {
       // setHide(y > lastY && y > 100);
       lastY = y;
 
-      // active section detection
-      const sections = ["home", "about", "projects", "contact"]
+      const offset = window.innerHeight / 3;
+      const sectionElements = sections
         .map((id) => document.getElementById(id))
         .filter(Boolean);
-      const offset = window.innerHeight / 3;
-      for (const s of sections) {
-        if (window.scrollY + offset >= s.offsetTop && window.scrollY + offset < s.offsetTop + s.offsetHeight) {
-          setActive(s.id);
+
+      for (const el of sectionElements) {
+        if (
+          window.scrollY + offset >= el.offsetTop &&
+          window.scrollY + offset < el.offsetTop + el.offsetHeight
+        ) {
+          setActive(el.id);
           break;
         }
       }
+
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -49,19 +55,21 @@ const Navbar = () => {
             RAHUL BINU
           </h1>
           {/* small gold dot accent */}
-          <span className={`${theme.accent} hidden md:inline-block text-sm font-semibold`}>•</span>
+          {/* <span className={`${theme.accent} hidden md:inline-block text-sm font-semibold`}>•</span> */}
         </div>
 
         {/* desktop links */}
         <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
-          {["Home", "About", "Projects", "Contact"].map((label) => {
+          {sections.map((label) => {
             const id = label.toLowerCase();
             const isActive = active === id;
             return (
               <li key={id}>
                 <a
-                  href={`#${id}`}
-                  className={`transition-all duration-200 ${isActive ? "underline decoration-2 underline-offset-4" : ""} ${isActive ? theme.hover : "text-white/80 hover:text-white"}`}
+                  href={`#${id}`} className={`transition-all duration-300 ${isActive
+                    ? "underline decoration-2 underline-offset-4 drop-shadow-[0_0_6px_rgba(16,185,129,0.6)]"
+                    : theme.navLink
+                    }`}
                 >
                   {label}
                 </a>
@@ -94,7 +102,7 @@ const Navbar = () => {
       {/* mobile dropdown */}
       {isOpen && (
         <div id="mobile-menu" className="md:hidden relative bg-black/30 backdrop-blur-md border-t border-emerald-700/10">
-          <ul className="flex flex-col gap-4 py-6 px-6 text-white/90">
+          <ul className="flex flex-col gap-4 py-6 px-6">
             {["Home", "About", "Projects", "Contact"].map((label) => (
               <li key={label}>
                 <a href={`#${label.toLowerCase()}`} className="block py-2" onClick={() => setIsOpen(false)}>

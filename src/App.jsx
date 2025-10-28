@@ -16,11 +16,11 @@ function App() {
 
             
               <Route element={<MainLayout />}>
-                <Route path="/dashboard" element={<Home />} />
+                <Route path="" element={<Home />} />
               </Route>
 
             <Route element={<MainLayout />}>
-              <Route path="" element={<TerminalPortfolio />} />
+              <Route path="/ter" element={<TerminalPortfolio />} />
             </Route>
 
           </Routes>

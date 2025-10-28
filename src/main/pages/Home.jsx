@@ -5,97 +5,149 @@ import { useTheme } from "../context/ThemeContext";
 
 function Home() {
     const { theme } = useTheme();
+    const myProjects = [
+        {
+            title: "Portfolio Website",
+            description:
+                "A personal portfolio built with React and Tailwind CSS to showcase my work and skills.",
+            tech: ["React", "Tailwind", "Vite"],
+            link: "#",
+        },
+        {
+            title: "Task Manager API",
+            description:
+                "A RESTful API built using Spring Boot and MySQL for managing daily tasks.",
+            tech: ["Spring Boot", "MySQL"],
+            link: "#",
+        },
+        {
+            title: "Media Sharing App",
+            description:
+                "A full-stack app where users can share photos and videos with personalized albums.",
+            tech: ["Java", "Spring", "Electron"],
+            link: "#",
+        },
+    ];
+
     return (
         <div className={`relative min-h-screen ${theme.background} ${theme.text}`}>
             {/* Navbar */}
             <Navbar />
 
             {/* Hero Section */}
-            <div className="flex flex-col items-center justify-center text-center px-4 pt-24 pb-32">
-                {/* Hero Section */}
-                <section
-                    id="home"
-                    className="relative flex flex-col items-center justify-center text-center px-6 pt-32 pb-40 min-h-screen overflow-hidden"
-                >
-                    {/* Background gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/10 to-transparent animate-pulse blur-3xl"></div>
+            <section
+                id="home"
+                className="relative flex flex-col items-center justify-center text-center px-6 pt-32 pb-40 min-h-screen overflow-hidden"
+            >
+                {/* Background gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/10 to-transparent animate-pulse blur-3xl"></div>
 
-                    {/* Floating glow orbs */}
-                    <div className="absolute w-72 h-72 bg-emerald-400/30 rounded-full blur-3xl top-20 left-10 animate-pulse"></div>
-                    <div className="absolute w-72 h-72 bg-lime-400/30 rounded-full blur-3xl bottom-20 right-10 animate-pulse"></div>
+                {/* Floating glow orbs */}
+                {/* <div className="absolute w-72 h-72 bg-emerald-400/30 rounded-full blur-3xl top-20 left-10 animate-pulse"></div>
+                <div className="absolute w-72 h-72 bg-lime-400/30 rounded-full blur-3xl bottom-20 right-10 animate-pulse"></div> */}
 
-                    {/* Hero Content */}
-                    <h1 className="text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-emerald-400 via-lime-400 to-green-500 bg-clip-text text-transparent drop-shadow-lg">
-                        Hi, I’m <span className="text-white dark:text-emerald-300">Rahul Binu</span>
-                    </h1>
+                {/* Hero Content */}
+                <h1 className="text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-emerald-400 via-lime-400 to-green-500 bg-clip-text text-transparent drop-shadow-lg">
+                    Hi, I’m Rahul Binu
+                </h1>
 
-                    <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed mb-8">
-                        A passionate <span className="text-emerald-500 font-semibold">Java Developer</span> crafting
-                        clean, efficient, and scalable applications — blending logic with elegant design.
+                <p className="text-lg md:text-xl max-w-2xl leading-relaxed mb-8">
+                    A passionate <span className="text-emerald-500 font-semibold">Java Developer</span> crafting
+                    clean, efficient, and scalable applications — blending logic with elegant design.
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="flex gap-4 mt-4">
+                    <a
+                        href="#projects"
+                        className={`px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-lime-500 font-semibold shadow-lg ${theme.hover} transition-transform duration-300`}
+                    >
+                        View My Work
+                    </a>
+                    <a
+                        href="#contact"
+                        className={`px-6 py-3 rounded-full border border-emerald-400 font-semibold  ${theme.hover} transition-colors duration-300`}
+                    >
+                        Contact Me
+                    </a>
+                </div>
+            </section>
+
+
+
+            {/* About Section */}
+            <section
+                id="about"
+                className="relative px-6 py-32 min-h-screen flex flex-col items-center justify-center text-center overflow-hidden"
+            >
+                {/* subtle background glow */}
+                <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/10 via-transparent to-transparent blur-3xl"></div>
+
+                {/* content */}
+                <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-emerald-400 via-lime-400 to-green-500 bg-clip-text text-transparent">
+                    About Me
+                </h2>
+
+                <div className="max-w-3xl text-lg leading-relaxed space-y-4">
+                    <p>
+                        I don’t just write code — I build ideas into something people can touch,
+                        see, and use. I enjoy the quiet satisfaction of a clean solution and the
+                        rush of making something come alive.
                     </p>
 
-                    {/* CTA Buttons */}
-                    <div className="flex gap-4 mt-4">
-                        <a
-                            href="#projects"
-                            className="px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-lime-500 text-white font-semibold shadow-lg hover:shadow-emerald-500/40 hover:scale-105 transition-transform duration-300"
+                    <p>
+                        Outside of development, I love exploring design, experimenting with
+                        minimal UI concepts, and constantly learning how technology can be both
+                        powerful and elegant.
+                    </p>
+
+                    <p className="italic text-emerald-300/90">
+                        “Clean code, calm mind, and a cup of coffee — that’s my debugging ritual.”
+                    </p>
+                </div>
+
+                {/* small floating accent or icon */}
+                <div className="absolute bottom-10 right-10 text-emerald-400/60 text-2xl animate-pulse">
+                    ✦
+                </div>
+            </section>
+
+
+            {/* Projects Section */}
+            <section id="projects" className="px-6 py-32 min-h-screen bg-gray-50/5 backdrop-blur-md">
+                <h2 className="text-4xl font-bold mb-10 text-center">Projects</h2>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {myProjects.map((project, index) => (
+                        <div
+                            key={index}
+                            className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl"
                         >
-                            View My Work
-                        </a>
-                        <a
-                            href="#contact"
-                            className="px-6 py-3 rounded-full border border-emerald-400 text-emerald-500 dark:text-emerald-300 font-semibold hover:bg-emerald-400/10 transition-colors duration-300"
-                        >
-                            Contact Me
-                        </a>
-                    </div>
-
-                    {/* Decorative wave or line */}
-                    <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-emerald-500/20 to-transparent blur-2xl"></div>
-                </section>
-
-
-                {/* About Section */}
-                <section id="about" className="px-4 py-32 min-h-screen">
-                    <h2 className="text-4xl font-bold mb-6">About Me</h2>
-                    <p className="max-w-3xl leading-relaxed">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit...
-                    </p>
-                </section>
-
-                {/* Projects Section */}
-                <section id="projects" className="px-4 py-32 min-h-screen">
-                    <h2 className="text-4xl font-bold mb-6">Projects</h2>
-                    <p className="max-w-3xl leading-relaxed">
-                        Showcase of my portfolio projects...
-                    </p>
-                </section>
-
-                {/* Contact Section */}
-                <section id="contact" className="px-4 py-32 min-h-screen">
-                    <h2 className="text-4xl font-bold mb-6">Contact</h2>
-                    <p className="max-w-3xl leading-relaxed">
-                        Get in touch via email or social media...
-                    </p>
-                </section>
-                <section id="home" className={`min-h-screen flex items-center ${theme.background} ${theme.subtleNoise ? theme.subtleNoise : ""}`}>
-                    <div className="container mx-auto px-6 py-20">
-                        <div className={`${theme.sectionBg} p-8 md:p-12 max-w-4xl mx-auto animate-fade-in-up`}>
-                            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r animate-gradient-x" style={{ backgroundImage: `linear-gradient(90deg, rgba(16,185,129,1), rgba(34,197,94,1))` }}>
-                                Build. Ship. Inspire.
-                            </h2>
-                            <p className="text-sm md:text-base text-gray-100/90 mb-6">
-                                Clean code, real projects, and a design language that speaks for itself.
-                            </p>
-
-                            <div className="flex gap-4">
-                                <a className={theme.button} href="#projects">See Projects</a>
-                                <a className="px-4 py-2 rounded-lg border border-emerald-200/20 text-sm" href="#contact">Contact</a>
+                            <h3 className="text-2xl font-semibold mb-3 transition">
+                                {project.title}
+                            </h3>
+                            <p className="mb-4">{project.description}</p>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                                {project.tech.map((t, i) => (
+                                    <span
+                                        key={i}
+                                        className="text-sm bg-white/10 px-3 py-1 rounded-full border"
+                                    >
+                                        {t}
+                                    </span>
+                                ))}
                             </div>
+                            <a
+                                href={project.link}
+                                className="text-blue-400 hover:text-blue-300 text-sm font-medium"
+                            >
+                                View Project →
+                            </a>
                         </div>
-                    </div>
-                </section>
-            </div>
+                    ))}
+                </div>
+            </section>
+
 
             {/* Footer */}
             <Footer />
